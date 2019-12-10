@@ -1,0 +1,2174 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "DataLakeAnalyticsScopeCatalogManagementClient",
+    "description": "Creates an Azure Data Lake Analytics ScopeCatalog client.",
+    "version": "2016-11-01",
+    "x-ms-code-generation-settings": {
+      "useDateTimeOffset": true,
+      "internalConstructors": true
+    }
+  },
+  "x-ms-parameterized-host": {
+    "hostTemplate": "{accountName}.{adlaCatalogDnsSuffix}",
+    "parameters": [
+      {
+        "name": "accountName",
+        "description": "The Azure Data Lake Analytics account upon which to execute catalog operations.",
+        "required": true,
+        "type": "string",
+        "in": "path",
+        "x-ms-skip-url-encoding": true
+      },
+      {
+        "$ref": "#/parameters/adlaCatalogDnsSuffixInPath"
+      }
+    ]
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/procedures/{procedureName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetProcedure",
+        "description": "Retrieves the specified procedure from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the procedure."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the procedure."
+          },
+          {
+            "name": "procedureName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the procedure."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the specified procedure from the underlying database and schema combination.",
+            "schema": {
+              "$ref": "#/definitions/ScopeProcedure"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified procedure from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetProcedure.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/procedures": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListProcedures",
+        "description": "Retrieves the list of procedures from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the procedures."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the procedures."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of procedures in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeProcedureList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of procedures from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListProcedures.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeProcedure"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetTable",
+        "description": "Retrieves the specified table from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the table."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the table."
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the table."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the specified table from the underlying database and schema combination",
+            "schema": {
+              "$ref": "#/definitions/ScopeTable"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified table from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetTable.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}/tablefragments": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListTableFragments",
+        "description": "Retrieves the list of table fragments from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the table fragments."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the table fragments."
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the table containing the table fragments."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of table fragments in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTableFragmentList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of table fragments from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListTableFragments.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeTableFragment"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tables": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListTables",
+        "description": "Retrieves the list of tables from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the tables."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the tables."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "name": "basic",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "default": false,
+            "description": "The basic switch indicates what level of information to return when listing tables. When basic is true, only database_name, schema_name, table_name and version are returned for each table, otherwise all table metadata is returned. By default, it is false. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of tables in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTableList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of tables from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListTables.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeTable"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tabletypes/{tableTypeName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetTableType",
+        "description": "Retrieves the specified table type from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the table type."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the table type."
+          },
+          {
+            "name": "tableTypeName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the table type to retrieve."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the specified table type from the underlying database and schema combination",
+            "schema": {
+              "$ref": "#/definitions/ScopeTableType"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified table type from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetTableType.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tabletypes": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListTableTypes",
+        "description": "Retrieves the list of table types from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the table types."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the table types."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of table types in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTableTypeList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of table types from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListTableTypes.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeTableType"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/packages/{packageName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetPackage",
+        "description": "Retrieves the specified package from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the package."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the package."
+          },
+          {
+            "name": "packageName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the package."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the specified package from the underlying database and schema combination",
+            "schema": {
+              "$ref": "#/definitions/ScopePackage"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified package from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetPackage.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/packages": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListPackages",
+        "description": "Retrieves the list of packages from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the packages."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the packages."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of packages in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopePackageList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of packages from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListPackages.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopePackage"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/views/{viewName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetView",
+        "description": "Retrieves the specified view from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the view."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the view."
+          },
+          {
+            "name": "viewName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the view."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the specified view from the underlying database and schema combination",
+            "schema": {
+              "$ref": "#/definitions/ScopeView"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified view from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetView.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/views": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListViews",
+        "description": "Retrieves the list of views from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the views."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the views."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of views in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeViewList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of views from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListViews.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeView"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}/partitions/{partitionName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetTablePartition",
+        "description": "Retrieves the specified table partition from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the partition."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the partition."
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the table containing the partition."
+          },
+          {
+            "name": "partitionName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the table partition."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the details of the specified table partition in the specified database, schema, and table.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTablePartition"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified table partition from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetTablePartition.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}/partitions": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListTablePartitions",
+        "description": "Retrieves the list of table partitions from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the partitions."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the partitions."
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the table containing the partitions."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of table partitions in the specified database, schema, and table.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTablePartitionList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of table partitions from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListTablePartitions.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeTablePartition"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/types": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListTypes",
+        "description": "Retrieves the list of types within the specified database and schema from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the types."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the types."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of types in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTypeList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of types within the specified database and schema from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListTypes.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeType"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tablevaluedfunctions/{tableValuedFunctionName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetTableValuedFunction",
+        "description": "Retrieves the specified table valued function from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the table valued function."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the table valued function."
+          },
+          {
+            "name": "tableValuedFunctionName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the tableValuedFunction."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the details of the specified table valued function in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTableValuedFunction"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified table valued function from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetTableValuedFunction.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}/tablevaluedfunctions": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListTableValuedFunctions",
+        "description": "Retrieves the list of table valued functions from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the table valued functions."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema containing the table valued functions."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of table valued functions in the specified database and schema.",
+            "schema": {
+              "$ref": "#/definitions/ScopeTableValuedFunctionList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of table valued functions from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListTableValuedFunctions.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeTableValuedFunction"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas/{schemaName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetSchema",
+        "description": "Retrieves the specified schema from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the schema."
+          },
+          {
+            "name": "schemaName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the schema."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the details of the specified schema in the specified database.",
+            "schema": {
+              "$ref": "#/definitions/ScopeSchema"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified schema from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetSchema.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases/{databaseName}/schemas": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListSchemas",
+        "description": "Retrieves the list of schemas from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database containing the schema."
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of schemas in the specified database.",
+            "schema": {
+              "$ref": "#/definitions/ScopeSchemaList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of schemas from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListSchemas.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeSchema"
+      }
+    },
+    "/catalog/scope/databases/{databaseName}": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_GetDatabase",
+        "description": "Retrieves the specified database from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "databaseName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the database."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the details of the specified database.",
+            "schema": {
+              "$ref": "#/definitions/ScopeDatabase"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the specified database from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_GetDatabase.json"
+          }
+        }
+      }
+    },
+    "/catalog/scope/databases": {
+      "get": {
+        "tags": [
+          "ScopeCatalog"
+        ],
+        "operationId": "ScopeCatalog_ListDatabases",
+        "description": "Retrieves the list of databases from the Data Lake Analytics Scope catalog.",
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData filter. Optional."
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to return. Optional."
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "description": "The number of items to skip over before returning elements. Optional."
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OData Select statement. Limits the properties on each entry to just those requested, e.g. Categories?$select=CategoryName,Description. Optional."
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "OrderBy clause. One or more comma-separated expressions with an optional \"asc\" (the default) or \"desc\" depending on the order you'd like the values sorted, e.g. Categories?$orderby=CategoryName desc. Optional."
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "description": "The Boolean value of true or false to request a count of the matching resources included with the resources in the response, e.g. Categories?$count=true. Optional."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the list of databases.",
+            "schema": {
+              "$ref": "#/definitions/ScopeDatabaseList"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Retrieves the list of databases from the Data Lake Analytics Scope catalog": {
+            "$ref": "./examples/ScopeCatalog_ListDatabases.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-odata": "#/definitions/ScopeDatabase"
+      }
+    }
+  },
+  "definitions": {
+    "ScopeProcedure": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database."
+        },
+        "schemaName": {
+          "type": "string",
+          "description": "the name of the schema associated with this procedure and database."
+        },
+        "procName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the procedure."
+        },
+        "definition": {
+          "type": "string",
+          "description": "the defined query of the procedure."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL procedure item."
+    },
+    "ScopeProcedureList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeProcedure"
+          },
+          "description": "the list of procedure in the database and schema combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL procedure item list."
+    },
+    "ScopeTableColumn": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of the column in the table."
+        },
+        "type": {
+          "type": "string",
+          "description": "the object type of the specified column (such as System.String)."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table column item."
+    },
+    "ScopeDirectedColumn": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of the index in the table."
+        },
+        "descending": {
+          "type": "boolean",
+          "description": "the switch indicating if the index is descending or not."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL directed column item."
+    },
+    "ScopeDistributionInfo": {
+      "properties": {
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the type of this distribution."
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ScopeDirectedColumn"
+          },
+          "description": "the list of directed columns in the distribution"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the count of indices using this distribution."
+        },
+        "dynamicCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the dynamic count of indices using this distribution."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL distribution information object."
+    },
+    "ScopeIndex": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of the index in the table."
+        },
+        "indexKeys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ScopeDirectedColumn"
+          },
+          "description": "the list of directed columns in the index"
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the list of columns in the index"
+        },
+        "distributionInfo": {
+          "$ref": "#/definitions/ScopeDistributionInfo",
+          "description": "the distributions info of the index"
+        },
+        "partitionFunction": {
+          "type": "string",
+          "format": "uuid",
+          "description": "partition function ID for the index."
+        },
+        "partitionKeyList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the list of partition keys in the index"
+        },
+        "streamNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the list of full paths to the streams that contain this index in the DataLake account."
+        },
+        "isColumnstore": {
+          "type": "boolean",
+          "description": "the switch indicating if this index is a columnstore index."
+        },
+        "indexId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the ID of this index within the table."
+        },
+        "isUnique": {
+          "type": "boolean",
+          "description": "the switch indicating if this index is a unique index."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table index item."
+    },
+    "DdlName": {
+      "properties": {
+        "firstPart": {
+          "type": "string",
+          "description": "the name of the table associated with this database and schema."
+        },
+        "secondPart": {
+          "type": "string",
+          "description": "the name of the table associated with this database and schema."
+        },
+        "thirdPart": {
+          "type": "string",
+          "description": "the name of the table associated with this database and schema."
+        },
+        "server": {
+          "type": "string",
+          "description": "the name of the table associated with this database and schema."
+        }
+      },
+      "description": "A Data Lake Analytics DDL name item."
+    },
+    "EntityId": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/DdlName",
+          "description": "the name of the external table associated with this database, schema and table."
+        },
+        "version": {
+          "type": "string",
+          "format": "uuid",
+          "description": "the version of the external data source."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog entity identifier object."
+    },
+    "TypeFieldInfo": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of the field associated with this type."
+        },
+        "type": {
+          "type": "string",
+          "description": "the type of the field."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog type field information item."
+    },
+    "ScopeTable": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database."
+        },
+        "schemaName": {
+          "type": "string",
+          "description": "the name of the schema associated with this table and database."
+        },
+        "tableName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the table."
+        },
+        "columnList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ScopeTableColumn"
+          },
+          "description": "the list of columns in this table"
+        },
+        "indexList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ScopeIndex"
+          },
+          "description": "the list of indices in this table"
+        },
+        "partitionKeyList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the list of partition keys in the table"
+        },
+        "externalTable": {
+          "$ref": "#/definitions/ExternalTable",
+          "description": "the external table associated with the table."
+        },
+        "distributionInfo": {
+          "$ref": "#/definitions/ScopeDistributionInfo",
+          "description": "the distributions info of the table"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table item."
+    },
+    "ScopeTableList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeTable"
+          },
+          "description": "the list of tables in the database and schema combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table item list."
+    },
+    "ScopeTableType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ScopeType"
+        }
+      ],
+      "properties": {
+        "columns": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/TypeFieldInfo"
+          },
+          "description": "the type field information associated with this table type."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table type item."
+    },
+    "ScopeTableTypeList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeTableType"
+          },
+          "description": "the list of table types in the database and schema combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table type item list."
+    },
+    "ScopeView": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database."
+        },
+        "schemaName": {
+          "type": "string",
+          "description": "the name of the schema associated with this view and database."
+        },
+        "viewName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the view."
+        },
+        "definition": {
+          "type": "string",
+          "description": "the defined query of the view."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL view item."
+    },
+    "ScopeViewList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeView"
+          },
+          "description": "the list of view in the database and schema combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL view item list."
+    },
+    "ScopePackage": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database containing the package."
+        },
+        "schemaName": {
+          "type": "string",
+          "description": "the name of the schema associated with this package and database."
+        },
+        "packageName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the package."
+        },
+        "definition": {
+          "type": "string",
+          "description": "the definition of the package."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL package item."
+    },
+    "ScopePackageList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopePackage"
+          },
+          "description": "the list of packages in the database and schema combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL package item list."
+    },
+    "ScopeTablePartition": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database."
+        },
+        "schemaName": {
+          "type": "string",
+          "description": "the name of the schema associated with this table partition and database."
+        },
+        "partitionName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the table partition."
+        },
+        "parentName": {
+          "$ref": "#/definitions/DdlName",
+          "description": "the Ddl object of the partition's parent."
+        },
+        "indexId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the index ID for this partition."
+        },
+        "label": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "the list of labels associated with this partition."
+        },
+        "createDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "the creation time of the partition"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table partition item."
+    },
+    "ScopeTablePartitionList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeTablePartition"
+          },
+          "description": "the list of table partitions in the database, schema and table combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table partition item list."
+    },
+    "ScopeType": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database."
+        },
+        "schemaName": {
+          "type": "string",
+          "description": "the name of the schema associated with this table and database."
+        },
+        "typeName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of type for this type."
+        },
+        "typeFamily": {
+          "type": "string",
+          "description": "the type family for this type."
+        },
+        "cSharpName": {
+          "type": "string",
+          "description": "the C# name for this type."
+        },
+        "fullCSharpName": {
+          "type": "string",
+          "description": "the fully qualified C# name for this type."
+        },
+        "systemTypeId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the system type ID for this type."
+        },
+        "userTypeId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the user type ID for this type."
+        },
+        "schemaId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the schema ID for this type."
+        },
+        "principalId": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the principal ID for this type."
+        },
+        "isNullable": {
+          "type": "boolean",
+          "description": "The switch indicating if this type is nullable."
+        },
+        "isUserDefined": {
+          "type": "boolean",
+          "description": "The switch indicating if this type is user defined."
+        },
+        "isAssemblyType": {
+          "type": "boolean",
+          "description": "The switch indicating if this type is an assembly type."
+        },
+        "isTableType": {
+          "type": "boolean",
+          "description": "The switch indicating if this type is a table type."
+        },
+        "isComplexType": {
+          "type": "boolean",
+          "description": "The switch indicating if this type is a complex type."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL type item."
+    },
+    "ScopeTypeList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeType"
+          },
+          "description": "the list of types in the database and schema combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL type item list."
+    },
+    "ScopeTableValuedFunction": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database."
+        },
+        "schemaName": {
+          "type": "string",
+          "description": "the name of the schema associated with this database."
+        },
+        "tvfName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the table valued function."
+        },
+        "definition": {
+          "type": "string",
+          "description": "the definition of the table valued function."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table valued function item."
+    },
+    "ScopeTableValuedFunctionList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeTableValuedFunction"
+          },
+          "description": "the list of table valued functions in the database and schema combination"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL table valued function item list."
+    },
+    "ScopeSchema": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "description": "the name of the database."
+        },
+        "schemaName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the schema."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL schema item."
+    },
+    "ScopeSchemaList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeSchema"
+          },
+          "description": "the list of schemas in the database"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL schema item list."
+    },
+    "ScopeDatabase": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItem"
+        }
+      ],
+      "properties": {
+        "databaseName": {
+          "type": "string",
+          "x-ms-client-name": "name",
+          "description": "the name of the database."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL database item."
+    },
+    "ScopeDatabaseList": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CatalogItemList"
+        }
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "$ref": "#/definitions/ScopeDatabase"
+          },
+          "description": "the list of databases"
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog U-SQL database item list."
+    },
+    "CatalogItem": {
+      "properties": {
+        "computeAccountName": {
+          "type": "string",
+          "description": "the name of the Data Lake Analytics account."
+        },
+        "version": {
+          "type": "string",
+          "format": "uuid",
+          "description": "the version of the catalog item."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog item."
+    },
+    "CatalogItemList": {
+      "properties": {
+        "nextLink": {
+          "type": "string",
+          "description": "the link to the next page of results."
+        }
+      },
+      "description": "A Data Lake Analytics Scope catalog item list."
+    }
+  },
+  "parameters": {
+    "ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "required": true,
+      "type": "string",
+      "description": "Client Api Version."
+    },
+    "adlaCatalogDnsSuffixInPath": {
+      "name": "adlaCatalogDnsSuffix",
+      "in": "path",
+      "required": true,
+      "type": "string",
+      "default": "azuredatalakeanalytics.net",
+      "x-ms-skip-url-encoding": true,
+      "description": "Gets the DNS suffix used as the base for all Azure Data Lake Analytics Scope catalog service requests.",
+      "x-ms-parameter-location": "client"
+    }
+  }
+}
